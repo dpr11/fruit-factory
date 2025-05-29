@@ -18,7 +18,7 @@ struct ContentView: View {
                 .padding()
             Text("Fruit Picker").font(.title2)
                 .padding()
-            Text("Catalogue Condition Revamp").font(.subheadline).italic()
+            Text("Catalogue Conditions Uncovered").font(.subheadline).italic()
         }
         .padding()
     }
