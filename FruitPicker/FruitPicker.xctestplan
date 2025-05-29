@@ -1,0 +1,38 @@
+{
+  "configurations" : [
+    {
+      "id" : "2E1A911C-2FBA-4C9B-BD8A-7C0A4032C3A9",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:FruitPicker.xcodeproj",
+      "identifier" : "90D5C76B2DE86D1D00404DB5",
+      "name" : "FruitPicker"
+    }
+  },
+  "testTargets" : [
+    {
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FruitPicker.xcodeproj",
+        "identifier" : "90D5C77B2DE86D1F00404DB5",
+        "name" : "FruitPickerTests"
+      }
+    },
+    {
+      "enabled" : false,
+      "parallelizable" : true,
+      "target" : {
+        "containerPath" : "container:FruitPicker.xcodeproj",
+        "identifier" : "90D5C7852DE86D1F00404DB5",
+        "name" : "FruitPickerUITests"
+      }
+    }
+  ],
+  "version" : 1
+}

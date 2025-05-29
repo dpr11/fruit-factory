@@ -23,6 +23,16 @@ default_platform(:ios)
 # end
 
 platform :ios do
+  desc "Run tests"
+  lane :tests do
+    run_tests(
+      scheme:  "FruitPicker",
+      devices: ["[E *] [iOS 18] iPhone 13 Pro (390x844) [SS 6.1'']"]
+    )
+  end
+end
+
+platform :ios do
   desc "Beta testing"
   lane :beta do
     
