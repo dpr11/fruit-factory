@@ -16,7 +16,9 @@ struct ContentView: View {
                 .frame(width: 64, height: 64)
                 .foregroundStyle(.tint)
                 .padding()
-            Text("Fruit Picker")
+            Text("Fruit Picker").font(.title2)
+                .padding()
+            Text("Catalogue Condition Revamp").font(.subheadline).italic()
         }
         .padding()
     }
