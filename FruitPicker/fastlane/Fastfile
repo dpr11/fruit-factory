@@ -25,6 +25,29 @@ default_platform(:ios)
 platform :ios do
   desc "Beta testing"
   lane :beta do
+    
+    # Use the environment variables to connect
+    app_store_connect_api_key()
+    
+    # Fetch and increment the latest used build number temporarily
+    increment_build_number(
+      build_number: latest_testflight_build_number + 1,
+      xcodeproj: "FruitPicker.xcodeproj"
+    )
+    
+    # Code sign syncing
+    # sync_code_signing(type: "appstore")    # see code signing guide for more information
+    
+    get_certificates           # invokes cert
+    get_provisioning_profile   # invokes sigh
+    
+    # Build
     build_app(scheme: "FruitPicker")
+    
+    # Upload
+    upload_to_testflight
+    
+    # Notify people
+    # slack(message: "Successfully distributed a new beta build")
   end
 end
