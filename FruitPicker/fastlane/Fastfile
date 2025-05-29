@@ -27,7 +27,8 @@ platform :ios do
   lane :tests do
     run_tests(
       scheme:  "FruitPicker",
-      devices: ["[E *] [iOS 18] iPhone 13 Pro (390x844) [SS 6.1'']"]
+      # Must put the (XX.X) version number after the device name! Bug.
+      device: "[E *] [iOS 18] iPhone 13 Pro (390x844) [SS 6.1''] (18.3)"
     )
   end
 end
@@ -45,9 +46,10 @@ platform :ios do
       xcodeproj: "FruitPicker.xcodeproj"
     )
     
-    # Code sign syncing
+    # Code sign syncing - need to upload certs to github repo
     # sync_code_signing(type: "appstore")    # see code signing guide for more information
     
+    # Use this instead:
     get_certificates           # invokes cert
     get_provisioning_profile   # invokes sigh
     
@@ -56,8 +58,25 @@ platform :ios do
     
     # Upload
     upload_to_testflight
+        
+    # Cleanup
+    clean_build_artifacts
+    
+    # clean_build_artifacts above does this now too - so don't need:
+    # puts "Cleaning up signing-releated files afterwards"
+    # Dir.chdir("..") do
+    #   file_patterns = ['*.mobileprovision', '*.cer']
+    #   file_patterns.each do |p|
+    #     Dir.glob(p) do |f|
+    #       puts "Removing file: #{f}"
+    #       File.delete(f)
+    #     end
+    #   end
+    # end
     
     # Notify people
     # slack(message: "Successfully distributed a new beta build")
   end
 end
+
+
