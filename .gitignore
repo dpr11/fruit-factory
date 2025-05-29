@@ -60,3 +60,7 @@ fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots/**/*.png
 fastlane/test_output
+fastlane/test_output/report.html
+fastlane/test_output/report.junit
+fastlane/report.xml
+
